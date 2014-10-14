@@ -5,28 +5,35 @@ $(document).ready(function() {
         'The quick brown fox jumped over the lazy dog and I followed in kind',
         'To go into solitude, a man needs to retire as much from his chamber as from society. I am not solitary whilst I read and write, though nobody is with me. But if a man would be alone, let him look at the stars.'
     ];
+    var promptIndex;
 
     $("#difficulty button").click(setDifficulty);
     $("#donebutton").click(finishTest);
 
     function setDifficulty() {
-        var promptIndex = $(this).index();
+        promptIndex = $(this).index();
         $('#prompt').val(prompts[promptIndex]);
         startTime = new Date();
     }
 
     function finishTest() {
-        endTime = new Date();
         var userText = $("#usertext").val();
-        var totalTime = Math.round((endTime - startTime)/1000);
-        var words = userText.split(' ');
 
-        var typingspeed = Math.round(words.length/totalTime * 60);
+        if(prompts[promptIndex] === userText) {
+            endTime = new Date();
+            var totalTime = Math.round((endTime - startTime)/1000);
+            var words = userText.split(' ');
 
-        $('#resulttext').html(
-            'You typed '+ words.length + ' words in '
-            + totalTime + ' seconds, a speed of about '
-            + typingspeed +' words per minute!'
-        );
+            var typingspeed = Math.round(words.length/totalTime * 60);
+
+            $('#resulttext').html(
+                'You typed '+ words.length + ' words in '
+                + totalTime + ' seconds, a speed of about '
+                + typingspeed +' words per minute!'
+            );
+        }
+        else {
+            $('#resulttext').html("You've made a typo! =/ Please start over.")
+        }
     }
 });
