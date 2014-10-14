@@ -6,7 +6,7 @@ $(document).ready(function() {
         'To go into solitude, a man needs to retire as much from his chamber as from society. I am not solitary whilst I read and write, though nobody is with me. But if a man would be alone, let him look at the stars.'
     ];
 
-    $("#start-easy").click(easyTest);
+    $("#difficulty button").click(easyTest);
     $("#donebutton").click(finishTest);
 
     function easyTest() {
