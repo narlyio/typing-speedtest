@@ -30,14 +30,17 @@
         <p>
           <textarea id="prompt" rows="5" cols="80"></textarea>
         </p>
-        <p>
-          <label for="usertext"><strong>Your Input</strong></label>
-          <br>
-          <input id="usertext" name="usertext" size="80"></input>
-        </p>
-        <p>
-          <button id="donebutton">DONE!</button>
-        </p>
+        <form>
+          <p>
+            <label for="usertext"><strong>Your Input</strong></label>
+            <br>
+            <input id="usertext" name="usertext" size="80"></input>
+          </p>
+          <p>
+            <button id="donebutton" type="submit">DONE!</button>
+          </p>
+        </form>
+
         <div id="resultarea">
           <p id="resulttext">You typed X words in Y seconds, a speed of about Z words per minute!</p>
           <!-- If user types in text that does not match the prompt text, then say

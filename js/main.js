@@ -9,6 +9,10 @@ $(document).ready(function() {
 
     $("#difficulty button").click(setDifficulty);
     $("#donebutton").click(finishTest);
+    $('form').submit(function(e) {
+        e.preventDefault();
+        finishTest();
+    })
 
     function setDifficulty() {
         promptIndex = $(this).index();
