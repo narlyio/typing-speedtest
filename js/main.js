@@ -13,6 +13,9 @@ $(document).ready(function() {
         e.preventDefault();
         finishTest();
     })
+    $('#usertext').keypress(function() {
+        finishTest();
+    })
 
     function setDifficulty() {
         promptIndex = $(this).index();
