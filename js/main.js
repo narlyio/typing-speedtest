@@ -14,7 +14,8 @@ $(document).ready(function() {
         finishTest();
     })
     $('#usertext').keypress(function() {
-        finishTest();
+        var output = getTypingSpeedOutput($("#usertext").val());
+        $('#resulttext').html(output);
     })
 
     function setDifficulty() {
