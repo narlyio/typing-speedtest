@@ -10,7 +10,8 @@ $(document).ready(function() {
     $("#donebutton").click(finishTest);
 
     function setDifficulty() {
-        $('#prompt').val(prompts[0]);
+        var promptIndex = $(this).index();
+        $('#prompt').val(prompts[promptIndex]);
         startTime = new Date();
     }
 
