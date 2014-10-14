@@ -27,20 +27,24 @@ $(document).ready(function() {
         var userText = $("#usertext").val();
 
         if(prompts[promptIndex] === userText) {
-            endTime = new Date();
-            var totalTime = Math.round((endTime - startTime)/1000);
-            var words = userText.split(' ');
-
-            var typingspeed = Math.round(words.length/totalTime * 60);
-
-            $('#resulttext').html(
-                'You typed '+ words.length + ' words in '
-                + totalTime + ' seconds, a speed of about '
-                + typingspeed +' words per minute!'
-            );
+            var output = getTypingSpeedOutput(userText);
+            $('#resulttext').html(output);
         }
         else {
             $('#resulttext').html("You've made a typo! =/ Please start over.")
         }
+    }
+
+    function getTypingSpeedOutput(userText) {
+        endTime = new Date();
+        var totalTime = Math.round((endTime - startTime)/1000);
+        var words = userText.split(' ');
+
+        var typingspeed = Math.round(words.length/totalTime * 60);
+
+        return ('You typed '+ words.length + ' words in '
+                + totalTime + ' seconds, a speed of about '
+                + typingspeed +' words per minute!');
+
     }
 });
