@@ -1,11 +1,16 @@
 $(document).ready(function() {
     var startTime;
+    var prompts = [
+        'lorem ipsum sic dolor',
+        'The quick brown fox jumped over the lazy dog and I followed in kind',
+        'To go into solitude, a man needs to retire as much from his chamber as from society. I am not solitary whilst I read and write, though nobody is with me. But if a man would be alone, let him look at the stars.'
+    ];
 
     $("#start-easy").click(easyTest);
     $("#donebutton").click(finishTest);
 
     function easyTest() {
-        $('#prompt').val('lorem ipsum sic dolor');
+        $('#prompt').val(prompts[0]);
         startTime = new Date();
     }
 
